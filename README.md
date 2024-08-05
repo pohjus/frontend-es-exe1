@@ -1,1 +1,1 @@
-# frontend-es-exe1
+# frontend / es / exercises 01
