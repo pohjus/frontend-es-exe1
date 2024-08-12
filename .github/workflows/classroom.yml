@@ -100,8 +100,8 @@ jobs:
       with:
         test-name: package-lock.json exists (1p)
         setup-command: ''
-        command: cd 01 && test -s package-lock.json && echo "File exists and is not
-          empty" || echo "File does not exist or is empty"
+        command: cd 01 && test -s package-lock.json && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
         input: ''
         expected-output: File exists and is not empty
         comparison-method: contains
