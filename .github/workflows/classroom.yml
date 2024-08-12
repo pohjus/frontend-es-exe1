@@ -1,0 +1,346 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: measure.js exists (1p)
+      id: exe1-measure-js-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: measure.js exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s measure.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: package.json exists (1p)
+      id: exe1-package-json-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: package.json exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s package.json && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: thirdpartymodule.js exists (1p)
+      id: exe1-thirdpartymodule-js-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: thirdpartymodule.js exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s thirdpartymodule.js && echo "File exists and is
+          not empty" || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: asciiart.js (1p)
+      id: exe1-asciiart-js
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: asciiart.js (1p)
+        setup-command: cd 01 && npm install
+        command: cd 01 && node asciiart.js
+        input: ''
+        expected-output: "  _   _      _ _        __        __         _     _ _ _
+          \n | | | | ___| | | ___   \\ \\      / /__  _ __| | __| | | |\n | |_| |/
+          _ \\ | |/ _ \\   \\ \\ /\\ / / _ \\| '__| |/ _` | | |\n |  _  |  __/ | |
+          (_) |   \\ V  V / (_) | |  | | (_| |_|_|\n |_| |_|\\___|_|_|\\___/     \\_/\\_/
+          \\___/|_|  |_|\\__,_(_|_)\n                                                         \n"
+        comparison-method: contains
+        timeout: 4
+        max-score: 1
+    - name: myfetch.js exists (1p)
+      id: exe1-myfetch-js-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: myfetch.js exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s myfetch.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: answer1.txt exists (1p)
+      id: exe1-answer1-txt-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: answer1.txt exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s answer1.txt && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: package-lock.json exists (1p)
+      id: exe1-package-lock-json-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: package-lock.json exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s package-lock.json && echo "File exists and is not
+          empty" || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: answer2.txt exists (1p)
+      id: exe1-answer2-txt-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: answer2.txt exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s answer2.txt && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: myeslint.js exists (1p)
+      id: exe1-myeslint-js-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: myeslint.js exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s myeslint.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: prettierc exists (1p)
+      id: exe1-prettierc-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: prettierc exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s .prettierrc && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: eslint conf exists (1p)
+      id: exe1-eslint-conf-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: eslint conf exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s eslint.config.mjs && echo "File exists and is not
+          empty" || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: EXERCISE2A
+      id: exe2a-argsjs-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: args.js
+        setup-command: ''
+        command: cd 02 && node args.js jussi && node args.js
+        input: ''
+        expected-output: |-
+          jussi
+          Error: No command-line arguments provided. Please provide at least one argument to proceed.
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+
+    - name: EXERCISE2B
+      id: exe2b-calculatorjs-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: e02 b) calculator.js
+        setup-command: ''
+        command: cd 02 && FORCE_COLOR=0 node calculator.js && FORCE_COLOR=0 node calculator.js
+          1 + 1 && FORCE_COLOR=0 node calculator.js 1 - 1 && FORCE_COLOR=0 node calculator.js
+          2 x 3 && FORCE_COLOR=0 node calculator.js 4 / 2 && FORCE_COLOR=0 node calculator.js
+          5 / 0 && FORCE_COLOR=0 node calculator.js 1 hello 2 && FORCE_COLOR=0 node
+          calculator.js hello + 2 && FORCE_COLOR=0 node calculator.js 1 + hello &&
+          FORCE_COLOR=0 node calculator.js hello + hello
+        input: ''
+        expected-output: |-
+          Error: No calculation provided. Please provide a calculation in the format: <number> <operator> <number>. For example: 1 + 1.
+          2
+          0
+          6
+          2
+          Error: Division by zero is undefined. Please provide a non-zero divisor.
+          Error: Invalid operator. Please use one of the following operators: +, -, x, /.
+          Error: Invalid input. The first operand must be a number.
+          Error: Invalid input. The second operand must be a number.
+          Error: Invalid input. Both operands must be numbers.
+        comparison-method: contains
+        timeout: 1
+        max-score: 10
+    - name: EXERCISE2C
+      id: exe2c-var-let-const-js-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: var-let-const.js exists
+        setup-command: ''
+        command: cd 02 && test -s var-let-const.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: EXERCISE2D
+      id: exe2d-loop-js-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: loop.js works
+        setup-command: ''
+        command: cd 02 && node loop.js && node loop.js 10 && node loop.js -10
+        input: ''
+        expected-output: |-
+          Error: Please provide exactly one number as a command-line argument.
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+          0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: EXERCISE2E
+      id: exe2e-types-js-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: types.js works
+        setup-command: ''
+        command: cd 02 && node types.js
+        input: ''
+        expected-output: |-
+          1 (number)
+          "hello" (string)
+          true (boolean)
+          null (object)
+          undefined (undefined)
+          123123 (bigint)
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: EXERCISE2F
+      id: exe2f-functions-js-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: functions.js works
+        setup-command: ''
+        command: cd 02 &&
+                 FORCE_COLOR=0 node functions.js sum &&
+                 FORCE_COLOR=0 node functions.js extract &&
+                 FORCE_COLOR=0 node functions.js greet &&
+                 FORCE_COLOR=0 node functions.js &&
+                 FORCE_COLOR=0 node functions.js sum foo bar &&
+                 FORCE_COLOR=0 node functions.js sum foo &&
+                 FORCE_COLOR=0 node functions.js extract foo &&
+                 FORCE_COLOR=0 node functions.js extract foo &&
+                 FORCE_COLOR=0 node functions.js extract &&
+                 FORCE_COLOR=0 node functions.js extract 1 5 &&
+                 FORCE_COLOR=0 node functions.js sum 1 1 &&
+                 FORCE_COLOR=0 node functions.js greet jack
+        input: ''
+        expected-output: |-
+          Error: Please provide a function name and the required arguments.
+          Usage: node functions.js <function> <arg1> <arg2>
+          Error: Please provide a function name and the required arguments.
+          Usage: node functions.js <function> <arg1> <arg2>
+          Error: Please provide a function name and the required arguments.
+          Usage: node functions.js <function> <arg1> <arg2>
+          Error: Please provide a function name and the required arguments.
+          Usage: node functions.js <function> <arg1> <arg2>
+          Error: Both arguments for sum must be numbers.
+          Error: Both arguments for sum must be numbers.
+          Error: Both arguments for extract must be numbers.
+          Error: Both arguments for extract must be numbers.
+          Error: Please provide a function name and the required arguments.
+          Usage: node functions.js <function> <arg1> <arg2>
+          -4
+          2
+          hello jack!
+        comparison-method: contains
+        timeout: 1
+        max-score: 6
+
+    - name: EXERCISE3
+      id: exe3-index-js-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: index.js exists
+        setup-command: ''
+        command: cd 03 && test -s index.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 15
+
+    - name: EXERCISE3
+      id: exe4-index-js-works
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: index.js exists
+        setup-command: ''
+        command: cd 04 && test -s index.js && echo "File exists and is not empty"
+          || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 20
+
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        EXE1-MEASURE-JS-EXISTS_RESULTS: "${{steps.exe1-measure-js-exists.outputs.result}}"
+        EXE1-PACKAGE-JSON-EXISTS_RESULTS: "${{steps.exe1-package-json-exists.outputs.result}}"
+        EXE1-THIRDPARTYMODULE-JS-EXISTS_RESULTS: "${{steps.exe1-thirdpartymodule-js-exists.outputs.result}}"
+        EXE1-ASCIIART-JS_RESULTS: "${{steps.exe1-asciiart-js.outputs.result}}"
+        EXE1-MYFETCH-JS-EXISTS_RESULTS: "${{steps.exe1-myfetch-js-exists.outputs.result}}"
+        EXE1-ANSWER1-TXT-EXISTS_RESULTS: "${{steps.exe1-answer1-txt-exists.outputs.result}}"
+        EXE1-PACKAGE-LOCK-JSON-EXISTS_RESULTS: "${{steps.exe1-package-lock-json-exists.outputs.result}}"
+        EXE1-ANSWER2-TXT-EXISTS_RESULTS: "${{steps.exe1-answer2-txt-exists.outputs.result}}"
+        EXE1-MYESLINT-JS-EXISTS_RESULTS: "${{steps.exe1-myeslint-js-exists.outputs.result}}"
+        EXE1-PRETTIERC-EXISTS_RESULTS: "${{steps.exe1-prettierc-exists.outputs.result}}"
+        EXE1-ESLINT-CONF-EXISTS_RESULTS: "${{steps.exe1-eslint-conf-exists.outputs.result}}"
+        EXE2A-ARGSJS-WORKS_RESULTS: "${{steps.exe2a-argsjs-works.outputs.result}}"
+        EXE2B-CALCULATORJS-WORKS_RESULTS: "${{steps.exe2b-calculatorjs-works.outputs.result}}"
+        EXE2C-VAR-LET-CONST-JS-EXISTS_RESULTS: "${{steps.exe2c-var-let-const-js-exists.outputs.result}}"
+        EXE2D-LOOP-JS-WORKS_RESULTS: "${{steps.exe2d-loop-js-works.outputs.result}}"
+        EXE2E-TYPES-JS-WORKS_RESULTS: "${{steps.exe2e-types-js-works.outputs.result}}"
+        EXE2F-FUNCTIONS-JS-WORKS_RESULTS: "${{steps.exe2f-functions-js-works.outputs.result}}"
+        EXE3-INDEX-JS-WORKS_RESULTS: "${{steps.exe3-index-js-works.outputs.result}}"
+        EXE4-INDEX-JS-WORKS_RESULTS: "${{steps.exe4-index-js-works.outputs.result}}"
+
+      with:
+        runners: "exe1-measure-js-exists,exe1-package-json-exists,exe1-thirdpartymodule-js-exists,exe1-asciiart-js,exe1-myfetch-js-exists,exe1-answer1-txt-exists,exe1-package-lock-json-exists,exe1-answer2-txt-exists,exe1-myeslint-js-exists,exe1-prettierc-exists,exe1-eslint-conf-exists,exe2a-argsjs-works,exe2b-calculatorjs-works,exe2c-var-let-const-js-exists,exe2d-loop-js-works,exe2e-types-js-works,exe2f-functions-js-works,exe3-index-js-works,exe4-index-js-works"
+
