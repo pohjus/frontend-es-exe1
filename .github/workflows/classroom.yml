@@ -26,6 +26,18 @@ jobs:
         comparison-method: contains
         timeout: 1
         max-score: 1
+    - name: package-lock.json exists (1p)
+      id: exe1-package-lock-json-exists
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: package-lock.json exists (1p)
+        setup-command: ''
+        command: cd 01 && test -s package-lock.json && echo "File exists and is not empty" || echo "File does not exist or is empty"
+        input: ''
+        expected-output: File exists and is not empty
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
     - name: package.json exists (1p)
       id: exe1-package-json-exists
       uses: classroom-resources/autograding-io-grader@v1
@@ -87,21 +99,7 @@ jobs:
       with:
         test-name: answer1.txt exists (1p)
         setup-command: ''
-        command: cd 01 && test -s answer1.txt && echo "File exists and is not empty"
-          || echo "File does not exist or is empty"
-        input: ''
-        expected-output: File exists and is not empty
-        comparison-method: contains
-        timeout: 1
-        max-score: 1
-    - name: package-lock.json exists (1p)
-      id: exe1-package-lock-json-exists
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: package-lock.json exists (1p)
-        setup-command: ''
-        command: cd 01 && test -s package-lock.json && echo "File exists and is not empty"
-          || echo "File does not exist or is empty"
+        command: cd 01 && test -s answer1.txt && echo "File exists and is not empty" || echo "File does not exist or is empty"
         input: ''
         expected-output: File exists and is not empty
         comparison-method: contains
